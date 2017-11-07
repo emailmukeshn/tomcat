@@ -1,0 +1,16 @@
+filebeat.prospectors:
+- input_type: log
+
+  paths:
+    - ###FB_LOG_LOC_ACCESS###
+  fields:  {log_type: ###FB_LOG_ACCESS###}
+
+- input_type: log
+  paths:
+    - ###FB_LOG_LOC_APP###
+  fields:  {log_type: ###FB_LOG_APP###}
+
+output.logstash:
+  hosts: ["###FB_LS_HOSTS###"]
+logging.level: ###FB_LOG_LEVEL###
+logging.selectors: ["*"]
